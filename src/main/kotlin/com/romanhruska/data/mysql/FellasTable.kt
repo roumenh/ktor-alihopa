@@ -6,7 +6,7 @@ import org.ktorm.schema.boolean
 import org.ktorm.schema.long
 import org.ktorm.schema.varchar
 
-object FellasTable: Table<Nothing>("Fellas") {
+object FellasTable: Table<Nothing>("fellas") {
 
     val id = varchar("id")
     val nick = varchar("nick")
