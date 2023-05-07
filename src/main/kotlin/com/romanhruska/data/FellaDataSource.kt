@@ -6,4 +6,6 @@ interface FellaDataSource {
 
     suspend fun insertFella(fella: Fella)
 
+    suspend fun getAllFellas(): List<Fella>
+
 }

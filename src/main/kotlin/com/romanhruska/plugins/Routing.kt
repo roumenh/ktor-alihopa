@@ -3,6 +3,7 @@ package com.romanhruska.plugins
 import com.romanhruska.data.FellaController
 import com.romanhruska.room.RoomController
 import com.romanhruska.routes.chatSocket
+import com.romanhruska.routes.getAllFellas
 import com.romanhruska.routes.getAllMessages
 import com.romanhruska.routes.insertFella
 import io.ktor.server.application.*
@@ -15,7 +16,9 @@ fun Application.configureRouting() {
     install(Routing) {
         chatSocket(roomController)
         getAllMessages(roomController)
+
         insertFella(fellaController)
+        getAllFellas(fellaController)
     }
 
 }

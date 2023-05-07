@@ -13,4 +13,9 @@ class FellaController (
         )
         fellaDataSource.insertFella(fellaEntity)
     }
+
+
+    suspend fun getAllFellas() : List<Fella>{
+        return fellaDataSource.getAllFellas()
+    }
 }
