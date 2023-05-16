@@ -9,7 +9,7 @@ data class MembershipDto(
     val id: String,
     val fellaId: String,
     val crewId: String,
-    val memberSince: String, //TODO Timestamp
+    val memberSince: Long, //TODO Timestamp
     val canInviteOthers: Boolean
 ){
     fun toMembership(): Membership =
@@ -17,7 +17,7 @@ data class MembershipDto(
             id = id,
             fellaId = fellaId,
             crewId = crewId,
-            memberSince = memberSince,  //TODO
+            memberSince = System.currentTimeMillis(),  //TODO
             canInviteOthers = canInviteOthers
         )
 

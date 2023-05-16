@@ -1,10 +1,13 @@
 package com.romanhruska.di
 
+import com.romanhruska.data.mysql.CrewDataSourceImpl
 import com.romanhruska.data.repositories.FellaRepository
 import com.romanhruska.data.sources.FellaDataSource
 import com.romanhruska.data.sources.MessageDataSource
 import com.romanhruska.data.mysql.FellaDataSourceImpl
 import com.romanhruska.data.mysql.MysqlMessageDataSourceImpl
+import com.romanhruska.data.repositories.CrewRepository
+import com.romanhruska.data.sources.CrewDataSource
 import com.romanhruska.room.RoomController
 import org.koin.dsl.module
 import org.ktorm.database.Database
@@ -27,14 +30,20 @@ val mainModule = module {
     single<FellaDataSource> {
         FellaDataSourceImpl(get())
     }
+    single<CrewDataSource> {
+        CrewDataSourceImpl(get())
+    }
 
     single<MessageDataSource> {
         MysqlMessageDataSourceImpl(get())
     }
 
-
     single {
         FellaRepository(get())
+    }
+
+    single {
+        CrewRepository(get())
     }
 
     single {

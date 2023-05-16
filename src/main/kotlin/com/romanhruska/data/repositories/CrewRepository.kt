@@ -3,26 +3,27 @@ package com.romanhruska.data.repositories
 import com.romanhruska.alihopa.business.Crew
 import com.romanhruska.alihopa.business.CrewDto
 import com.romanhruska.data.model.FellaDto
+import com.romanhruska.data.model.MembershipDto
 import com.romanhruska.data.sources.CrewDataSource
+
+// Now contains also logic around memberships (maybe in future to move to separate repository ?)
 
 class CrewRepository (
     private val crewDataSource: CrewDataSource
 ) {
 
-    suspend fun insertCrew(crewDto: CrewDto, fellaDto: FellaDto) {
+    suspend fun insertMembership(membershipDto: MembershipDto) {
         // now we have received the data from request
-
-        val crew = crewDto.toCrew()
-        val fella = fellaDto.toFella()
+        val membership = membershipDto.toMembership()
         // so far nothing magical is happening here, but we keep the mapper working
 
-        crewDataSource.joinCrew(fella = fella, crew = crew)
+        crewDataSource.joinCrew(membership = membership)
     }
 
 
-    suspend fun getAllCrews() : List<FellaDto>{
+/*    suspend fun getAllCrews() : List<CrewDto>{
         var fellasDtoList = mutableListOf<FellaDto>()
-        fellaDataSource.getAllFellas().map {
+        crewDataSource.get...().map {
             fellasDtoList.add(
                 FellaDto(
                     id = it.id,
@@ -34,5 +35,5 @@ class CrewRepository (
         return fellasDtoList
     }
 
-    suspend fun checkFellaNick(nick: String) : Boolean = fellaDataSource.checkFellaNick(nick)
+    suspend fun checkFellaNick(nick: String) : Boolean = fellaDataSource.checkFellaNick(nick)*/
 }
