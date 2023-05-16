@@ -1,6 +1,6 @@
 package com.romanhruska.di
 
-import com.romanhruska.data.FellaController
+import com.romanhruska.data.FellaRepository
 import com.romanhruska.data.FellaDataSource
 import com.romanhruska.data.MessageDataSource
 import com.romanhruska.data.mysql.FellaDataSourceImpl
@@ -34,7 +34,7 @@ val mainModule = module {
 
 
     single {
-        FellaController(get())
+        FellaRepository(get())
     }
 
     single {

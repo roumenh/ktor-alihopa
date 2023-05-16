@@ -2,34 +2,37 @@ package com.romanhruska.data.mysql
 
 import com.romanhruska.data.FellaDataSource
 import com.romanhruska.data.model.Fella
-import com.romanhruska.data.model.Message
+import com.romanhruska.data.model.FellaDto
 import org.ktorm.database.Database
 import org.ktorm.database.asIterable
-import org.ktorm.dsl.from
-import org.ktorm.dsl.insert
-import org.ktorm.dsl.select
+import org.ktorm.dsl.*
 
 class FellaDataSourceImpl(
     private val database: Database
 ) : FellaDataSource {
     override suspend fun insertFella(fella: Fella) {
         database.insert(FellasTable) {
+            set(it.id, fella.id)
+            set(it.nick, fella.nick)
             set(it.canCreateCrews, fella.canCreateCrews)
             set(it.referredBy, fella.referredBy)
-            set(it.nick, fella.fellaNick)
-            set(it.id, fella.fellaId)
         }
     }
 
     override suspend fun getAllFellas() : List<Fella> {
-        val fellas = database.from(FellasTable).select()
-        return fellas.rowSet.asIterable().map { row ->
+        val query = database.from(FellasTable).select()
+        return query.rowSet.asIterable().map { row ->
             Fella(
+                row[FellasTable.id] ?: "",
                 row[FellasTable.nick] ?: "",
                 row[FellasTable.canCreateCrews] ?: false,
                 row[FellasTable.referredBy] ?: "",
-                row[FellasTable.id] ?: "",
             )
         }
+    }
+
+    override suspend fun checkFellaNick(nick: String): Boolean {
+        val query  = database.from(FellasTable).select().where { (FellasTable.nick eq nick) }
+        return (query.rowSet.size() > 0)
     }
 }

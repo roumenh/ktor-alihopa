@@ -1,20 +1,19 @@
 package com.romanhruska.routes
 
-import com.romanhruska.data.FellaController
-import com.romanhruska.data.model.Fella
-import com.romanhruska.room.RoomController
+import com.romanhruska.data.FellaRepository
+import com.romanhruska.data.model.FellaDto
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
 
-fun Route.insertFella(fellaController: FellaController) {
+fun Route.insertFella(fellaRepository: FellaRepository) {
     post("/fella") {
         try {
-            val post = call.receive<Fella>()
-            fellaController.insertFella(post.fellaNick)  // TODO remake,, this does not make much sense
-            call.respondText ("Hello, this is $post from the post body", ContentType.Text.Plain)
+            val postFellaDto = call.receive<FellaDto>()
+            fellaRepository.insertFella(postFellaDto)  // TODO remake,, this does not make much sense, or has it?
+            call.respondText ("Hello, this is $postFellaDto from the post body", ContentType.Text.Plain)
 
 
         } catch (e: io.ktor.serialization.JsonConvertException){
@@ -28,11 +27,25 @@ fun Route.insertFella(fellaController: FellaController) {
     }
 }
 
-fun Route.getAllFellas(fellaController: FellaController) {
+fun Route.getAllFellas(fellaRepository: FellaRepository) {
     get("/fellas") {
         call.respond(
             HttpStatusCode.OK,
-            fellaController.getAllFellas()
+            fellaRepository.getAllFellas()
         )
+    }
+}
+
+
+fun Route.checkFellaNick(fellaRepository: FellaRepository) {
+    get("/check-fella-nick/{nick}") {
+        val nick = call.parameters["nick"]
+        if (nick != null){
+            call.respond(
+                HttpStatusCode.OK,
+                fellaRepository.checkFellaNick(nick)
+            )
+        }
+       // TODO else + error handling
     }
 }
