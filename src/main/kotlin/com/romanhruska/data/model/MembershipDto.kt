@@ -6,6 +6,19 @@ import org.bson.types.ObjectId
 
 @Serializable
 data class MembershipDto(
-    @BsonId
-    var id: String = ObjectId().toString()
-)
+    val id: String,
+    val fellaId: String,
+    val crewId: String,
+    val memberSince: String, //TODO Timestamp
+    val canInviteOthers: Boolean
+){
+    fun toMembership(): Membership =
+        Membership(
+            id = id,
+            fellaId = fellaId,
+            crewId = crewId,
+            memberSince = memberSince,  //TODO
+            canInviteOthers = canInviteOthers
+        )
+
+}

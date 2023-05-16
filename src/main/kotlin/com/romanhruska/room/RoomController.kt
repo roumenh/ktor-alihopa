@@ -1,6 +1,6 @@
 package com.romanhruska.room
 
-import com.romanhruska.data.MessageDataSource
+import com.romanhruska.data.sources.MessageDataSource
 import com.romanhruska.data.model.Message
 import io.ktor.websocket.*
 import kotlinx.serialization.encodeToString

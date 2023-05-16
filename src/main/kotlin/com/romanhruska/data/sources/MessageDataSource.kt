@@ -1,4 +1,4 @@
-package com.romanhruska.data
+package com.romanhruska.data.sources
 
 import com.romanhruska.data.model.Message
 

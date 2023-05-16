@@ -1,4 +1,4 @@
-package com.romanhruska.data.mysql
+package com.romanhruska.data.mysql.tables
 
 import org.ktorm.schema.Table
 import org.ktorm.schema.long

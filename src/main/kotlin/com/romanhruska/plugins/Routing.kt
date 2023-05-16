@@ -1,6 +1,6 @@
 package com.romanhruska.plugins
 
-import com.romanhruska.data.FellaRepository
+import com.romanhruska.data.repositories.FellaRepository
 import com.romanhruska.room.RoomController
 import com.romanhruska.routes.*
 import io.ktor.server.application.*

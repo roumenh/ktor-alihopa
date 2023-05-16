@@ -1,8 +1,8 @@
 package com.romanhruska.di
 
-import com.romanhruska.data.FellaRepository
-import com.romanhruska.data.FellaDataSource
-import com.romanhruska.data.MessageDataSource
+import com.romanhruska.data.repositories.FellaRepository
+import com.romanhruska.data.sources.FellaDataSource
+import com.romanhruska.data.sources.MessageDataSource
 import com.romanhruska.data.mysql.FellaDataSourceImpl
 import com.romanhruska.data.mysql.MysqlMessageDataSourceImpl
 import com.romanhruska.room.RoomController

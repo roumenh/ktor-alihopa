@@ -1,11 +1,9 @@
-package com.romanhruska.data
+package com.romanhruska.data.repositories
 
-import com.romanhruska.data.model.Fella
 import com.romanhruska.data.model.FellaDto
-import com.romanhruska.data.model.toFella
+import com.romanhruska.data.sources.FellaDataSource
 
 class FellaRepository (
-    //private val messageDataSource: MessageDataSource,
     private val fellaDataSource: FellaDataSource
 ) {
 

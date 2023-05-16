@@ -1,6 +1,6 @@
 package com.romanhruska.routes
 
-import com.romanhruska.data.FellaRepository
+import com.romanhruska.data.repositories.FellaRepository
 import com.romanhruska.data.model.FellaDto
 import io.ktor.http.*
 import io.ktor.server.application.*

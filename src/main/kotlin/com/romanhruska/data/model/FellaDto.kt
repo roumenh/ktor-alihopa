@@ -6,14 +6,14 @@ import org.bson.types.ObjectId
 
 @Serializable
 data class FellaDto (
-    var id: String,
-    var nick: String,
-    var canCreateCrews: Boolean? = false,
-    var referredBy: String? = null
-)
-
-fun FellaDto.toFella() = Fella(
-    nick = this.nick,
-    id = this.id,
-    canCreateCrews = this.canCreateCrews,
-)
+    val id: String,
+    val nick: String,
+    val canCreateCrews: Boolean? = false,
+    val referredBy: String? = null
+) {
+    fun toFella() = Fella(
+        nick = this.nick,
+        id = this.id,
+        canCreateCrews = this.canCreateCrews,
+    )
+}

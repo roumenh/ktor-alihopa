@@ -1,7 +1,8 @@
 package com.romanhruska.data.mysql
 
 import com.romanhruska.data.model.Message
-import com.romanhruska.data.MessageDataSource
+import com.romanhruska.data.mysql.tables.MessagesTable
+import com.romanhruska.data.sources.MessageDataSource
 import org.ktorm.database.Database
 import org.ktorm.database.asIterable
 import org.ktorm.dsl.from

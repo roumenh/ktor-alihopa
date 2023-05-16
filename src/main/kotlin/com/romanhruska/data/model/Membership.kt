@@ -4,9 +4,10 @@ import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.bson.types.ObjectId
 
-data class Fella (
+data class Membership(
     val id: String,
-    val nick: String,
-    val canCreateCrews: Boolean? = false,
-    val referredBy: String? = null
+    val fellaId: String,
+    val crewId: String,
+    val memberSince: String, //TODO Timestamp
+    val canInviteOthers: Boolean
 )

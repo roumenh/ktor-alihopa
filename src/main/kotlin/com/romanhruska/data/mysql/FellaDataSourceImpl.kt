@@ -1,8 +1,8 @@
 package com.romanhruska.data.mysql
 
-import com.romanhruska.data.FellaDataSource
+import com.romanhruska.data.sources.FellaDataSource
 import com.romanhruska.data.model.Fella
-import com.romanhruska.data.model.FellaDto
+import com.romanhruska.data.mysql.tables.FellasTable
 import org.ktorm.database.Database
 import org.ktorm.database.asIterable
 import org.ktorm.dsl.*
