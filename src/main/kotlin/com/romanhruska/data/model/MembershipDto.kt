@@ -17,7 +17,7 @@ data class MembershipDto(
             id = id,
             fellaId = fellaId,
             crewId = crewId,
-            memberSince = System.currentTimeMillis(),  //TODO
+            memberSince = memberSince,
             canInviteOthers = canInviteOthers
         )
 
